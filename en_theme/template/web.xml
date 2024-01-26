@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+	
+	<template id="webclient_bootstrap" name="Web Client" inherit_id="web.webclient_bootstrap">
+        <xpath expr="//t[@t-set='head']" position="after">
+            <t t-set="head_web_theme">
+                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+            </t>
+            <t t-set="head" t-value="head_web_theme + (head or '')"/>
+        </xpath>
+        <xpath expr="//t[@t-set='body_classname']" position="after">
+        	<t t-set="body_sidebar_classname" t-value="'mk_sidebar_type_small'"/>
+        	<t t-set="body_chatter_classname" t-value="'mk_chatter_position_sided'"/>
+            <t t-set="body_classname" t-value="'o_web_client %s %s' % (body_sidebar_classname, body_chatter_classname)"/>
+        </xpath>
+    </template>
+	
+    
+</odoo>

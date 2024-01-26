@@ -1,0 +1,13 @@
+<template>
+    <!-- Buttons of the Control Panel -->
+    <t t-name="report_xlsx.client_action.ControlButtons">
+        <div class="o_report_buttons">
+            <button type="button"
+                    class="btn btn-primary o_report_export_xlsx_iframe"
+                    title="Export">Export XLSX</button>
+            <button type="button"
+                    class="btn btn-secondary o_report_refresh_xlsx"
+                    title="Refresh Report">Refresh</button>
+        </div>
+    </t>
+</template>

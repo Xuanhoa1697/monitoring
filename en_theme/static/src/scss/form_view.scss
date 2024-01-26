@@ -1,0 +1,16 @@
+
+.o_form_view {
+    .o_form_sheet_bg {
+
+        .oe_button_box {
+        	.btn.oe_stat_button > .o_button_icon {
+        		color: $o-brand-odoo; 
+        	}
+       	}
+		.o_form_view {
+			.o_form_uri {
+				color: $o-brand-odoo !important; 
+			}
+		}
+    }
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="construction_monitoring_view_form" model="ir.ui.view">
+            <field name="name">construction.monitoring.form.view</field>
+            <field name="model">construction.monitoring</field>
+            <field name="arch" type="xml">
+                <form string="INCL">
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" required="1"/>
+                            <h1><field name="name" required="1"/></h1>
+                        </div>
+                        <group>
+                            <field name="construction_manager" readonly="0" required="1"/>
+                            <field name="construction_address" readonly="0" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="construction_monitoring_view_tree" model="ir.ui.view">
+            <field name="name">construction.monitoring.list.view</field>
+            <field name="model">construction.monitoring</field>
+            <field name="arch" type="xml">
+                <tree string="Construction">
+                    <field name="name"/>
+                    <field name="construction_manager" readonly="0"/>
+                    <field name="construction_address" readonly="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_construction_monitoring" model="ir.actions.act_window">
+            <field name="name">Construction Monitoring</field>
+            <field name="res_model">construction.monitoring</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

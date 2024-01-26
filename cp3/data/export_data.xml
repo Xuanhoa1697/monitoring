@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_monitoring_data_xlsx"
+            model="ir.actions.report">
+        <field name="name">Monitoring Data Report XLSX</field>
+        <field name="model">monitoring.data.wizard</field>
+        <field name="type">ir.actions.report</field>
+        <field name="report_name">cp3.monitoring_data_report_xlsx</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_file">monitoring_data_report</field>
+    </record>
+</odoo>

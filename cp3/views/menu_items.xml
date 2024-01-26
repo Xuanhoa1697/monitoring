@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem name="Monitoring"
+            id="menu_monitoring"
+            web_icon="cp3,static/description/icon.png"
+            groups="base.group_user"
+            sequence="10" >
+            <menuitem name="Monitoring Data"
+                    id="menu_monitoring_data"
+                    action="action_monitoring_data"
+                    groups="base.group_user"
+                    sequence="1"/>
+            <menuitem name="Inclinometer"
+                    id="menu_inclinometer_file"
+                    action="action_inclinometter_file"
+                    groups="base.group_user"
+                    sequence="2"/>
+            <menuitem name="Monitoring Config"
+                id="menu_monitoring_config"
+                groups="cp3.group_monitoring_admin"
+                sequence="4">
+                <menuitem name="Monitoring Project"
+                    id="menu_monitoring_construction"
+                    action="action_construction_monitoring"
+                    groups="cp3.group_monitoring_admin"
+                    sequence="10"/>
+                <menuitem name="Monitoring Sites"
+                    id="menu_monitoring_sites"
+                    action="action_monitoring_sites"
+                    groups="cp3.group_monitoring_admin"
+                    sequence="20"/>
+                <menuitem name="Monitoring Devices"
+                    id="menu_monitoring_devices"
+                    action="action_monitoring_devices"
+                    groups="cp3.group_monitoring_admin"
+                    sequence="30"/>
+
+                <menuitem name="Monitoring Type"
+                    id="menu_monitoring_type"
+                    action="action_monitoring_type"
+                    groups="cp3.group_monitoring_admin"
+                    sequence="40"/>
+                <menuitem name="Monitoring Compute"
+                    id="menu_monitoring_compute"
+                    action="action_monitoring_compute"
+                    groups="cp3.group_monitoring_admin"
+                    sequence="50"/>
+            </menuitem>
+        </menuitem>
+            
+    </data>
+</odoo>

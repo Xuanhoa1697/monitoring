@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+	
+	<t t-extend="AppsMenu">
+		<t t-jquery=".o_app" t-operation="attributes">
+            <attribute name="t-attf-href">#menu_id=#{app.menuID}&amp;action_id=#{app.actionID}</attribute>
+        </t>
+        <t t-jquery=".full" t-operation="attributes">
+            <attribute name="accesskey">h</attribute>
+        </t>
+        <!-- <t t-jquery=".full &gt; i" t-operation="attributes">
+            <attribute name="class">fa fa-th</attribute>
+        </t> -->
+        <t t-jquery="[t-as=app]" t-operation="before">
+            <div class="mk_search_container form-row align-items-center mb-4 col-12">
+                <div class="mk_search_input col-md-10 ml-auto mr-auto mb-2">
+                    <div class="input-group" style="height:42px;">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="fa fa-search"/>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Search menus..." class="form-control h-100"/>
+                    </div>
+                </div>
+                <div class="mk_search_results col-md-10 ml-auto mr-auto"/>
+            </div>
+        </t>
+        <t t-jquery=".o_app &gt; t" t-operation="replace">
+            <t t-call="en_theme.AppIcon"/>
+        </t>
+    </t>
+
+    <t t-name="en_theme.AppIcon">
+        <img class="o-app-icon" t-attf-src="data:image/png;base64,#{app.web_icon_data}"/>
+        <span class="o-app-name">
+            <t t-esc="app.name"/>
+        </span>
+    </t>
+
+    <t t-name="en_theme.MenuSearchResults">
+        <t t-foreach="results" t-as="result">
+            <t t-set="menu" t-value="widget._menuInfo(result.original)"/>
+            <a t-attf-class="mk_menu_search_result dropdown-item col-12 ml-auto mr-auto #{result_first ? 'active' : ''}"
+                 t-attf-style="background-image: #{menu.web_icon_data ? 'url(data:image/png;base64,' + menu.web_icon_data + ')' : 'none'}"
+                 t-attf-href="#menu_id=#{menu.id}&amp;action_id=#{menu.action_id}"
+                 t-att-data-menu-id="menu.id"
+                 t-att-data-action-id="menu.action_id"
+                 t-att-data-parent-id="menu.parent_id[0]"
+                 t-raw="result.string"/>
+        </t>
+    </t>
+
+    <t t-name="AppsMenu">
+        <li class="dropdown">
+            <a class="full" data-toggle="dropdown" data-display="static" href="#" accesskey="h">
+            <img src="/en_theme/static/src/img/logo.svg" class="w-100" alt="false"/>
+            </a>
+            <div class="dropdown-menu" role="menu">
+                <t t-foreach="widget.getApps()" t-as="app">
+                <a role="menuitem" t-attf-href="#menu_id=#{app.menuID}"
+                    class="dropdown-item o_app"
+                    t-att-data-menu-id="app.menuID"
+                    t-att-data-menu-xmlid="app.xmlID"
+                    t-att-data-action-id="app.actionID">
+                        <t t-esc="app.name"/>
+                    </a>
+                </t>
+            </div>
+        </li>
+    </t>
+
+    <t t-name="Menu.sections">
+        <t t-foreach="menu_data.children" t-as="first_level_menu">
+            <section t-att-class="first_level_menu.id">
+                <t t-foreach="first_level_menu.children" t-as="second_level_menu">
+                    <t t-if="!second_level_menu.children.length">
+                        <t t-call="Menu.link">
+                            <t t-set="inNavbar" t-value="true"/>
+                            <t t-set="menu" t-value="second_level_menu"/>
+                        </t>
+                    </t>
+                    <t t-else="">
+                        <li>
+                            <a href="#" class="dropdown-toggle o-no-caret o_menu_header_lvl_1" t-att-data-menu-xmlid="second_level_menu.xmlid" data-toggle="dropdown" data-display="static" role="button" aria-expanded="false">
+                                <t t-esc="second_level_menu.name"/>
+                                <t t-if="second_level_menu.children.length > 0">
+                                    <i class="fa fa-selection-menu ml-1" aria-hidden="true"></i>
+                                </t>
+                            </a>
+                            <div class="dropdown-menu" role="menu">
+                                <t t-foreach="second_level_menu.children" t-as="third_level_menu">
+                                    <t t-call="Menu.link">
+                                        <t t-set="depth" t-value="1"/>
+                                        <t t-set="menu" t-value="third_level_menu"/>
+                                    </t>
+                                </t>
+                            </div>
+                        </li>
+                    </t>
+                </t>
+            </section>
+        </t>
+    </t>
+
+</templates>

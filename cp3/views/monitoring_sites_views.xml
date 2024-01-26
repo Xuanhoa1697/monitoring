@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="monitoring_sites_view_form" model="ir.ui.view">
+            <field name="name">monitoring.sites.form.view</field>
+            <field name="model">monitoring.sites</field>
+            <field name="arch" type="xml">
+                <form string="Sites">
+                    <sheet>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="construction_id" required="1" string="Construction Sites"/>
+                            <field name="sites_manager" readonly="0" required="1"/>
+                            <field name="path" readonly="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Devices" name="device">
+                                <field name="device_ids" readonly="1"/>
+                            </page>
+                            <page string="Worker" name="worker">
+                                <field name="user_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="monitoring_sites_view_tree" model="ir.ui.view">
+            <field name="name">monitoring.sites.list.view</field>
+            <field name="model">monitoring.sites</field>
+            <field name="arch" type="xml">
+                <tree string="Sites">
+                    <field name="name"/>
+                    <field name="construction_id" required="1"/>
+                    <field name="sites_manager" readonly="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="monitoring_type_view_tree" model="ir.ui.view">
+            <field name="name">monitoring.type.list.view</field>
+            <field name="model">monitoring.type</field>
+            <field name="arch" type="xml">
+                <tree string="Type">
+                    <field name="name" required="1"/>
+                    <field name="code" required="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="monitoring_type_view_form" model="ir.ui.view">
+            <field name="name">monitoring.type.form.view</field>
+            <field name="model">monitoring.type</field>
+            <field name="arch" type="xml">
+                <form string="Type">
+                    <sheet>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="code" required="1"/>
+                            <field name="csv_key_code" required="1"/>
+                            <field name="csv_row_code" required="1"/>
+                            <field name="excel_row_code" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_monitoring_sites" model="ir.actions.act_window">
+            <field name="name">Monitoring Sites</field>
+            <field name="res_model">monitoring.sites</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="action_monitoring_type" model="ir.actions.act_window">
+            <field name="name">Monitoring Type</field>
+            <field name="res_model">monitoring.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

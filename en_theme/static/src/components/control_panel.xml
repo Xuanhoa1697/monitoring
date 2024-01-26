@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+
+    <t t-inherit="web.ControlPanel" t-inherit-mode="extension">
+        <xpath expr="//nav[hasclass('o_cp_switch_buttons')]" position="replace">
+        	<nav 
+        		t-if="props.views.length gt 1" 
+        		class="btn-group o_cp_switch_buttons"
+	            role="toolbar" 
+	            aria-label="View switcher"
+	            t-att-class="{ show: state and state.showViewSwitcherButtons }" 
+	       	>	
+	       		<t t-if="isMobile">
+		            <button 
+		            	type="button" 
+		            	class="btn btn-link btn-sm" 
+		            	t-on-click="state.showViewSwitcherButtons = !state.showViewSwitcherButtons"
+		            >
+		                <span 
+		                	class="fa fa-lg" 
+		                	t-att-class="_getCurrentViewIcon()"
+		                />
+		            </button>
+		            <ul t-if="state.showViewSwitcherButtons" 
+		            	t-att-class="{ show: state.showViewSwitcherButtons }"
+		            	class="dropdown-menu dropdown-menu-right"
+		            >
+		                <li t-foreach="props.views" t-as="view" t-key="view.type">
+		                    <t t-call="web.ViewSwitcherButton"/>
+		                </li>
+		            </ul>
+	            </t>
+	            <t t-else="">
+	            	<t t-foreach="props.views" t-as="view" t-key="view.type">
+                        <t t-call="web.ViewSwitcherButton"/>
+                    </t>
+	            </t>
+	        </nav>
+        </xpath>
+    </t>
+
+</templates>
