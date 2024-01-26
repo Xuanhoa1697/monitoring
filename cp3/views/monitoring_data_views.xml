@@ -69,7 +69,7 @@
             <field name="name">monitoring.data.list.view</field>
             <field name="model">monitoring.data</field>
             <field name="arch" type="xml">
-                <tree string="Data" expand="1" create="0" js_class="monitoring_data_list_view">
+                <tree string="Data" expand="1" create="0" export_xlsx="false" js_class="monitoring_data_list_view">
                     <field name="name"/>
                     <field name="site_id" invisible="1"/>
                     <field name="construction_id"/>
