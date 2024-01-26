@@ -19,3 +19,5 @@
     "application": False,
     "installable": True,
 }
+
+# test
