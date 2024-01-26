@@ -19,5 +19,3 @@
     "application": False,
     "installable": True,
 }
-
-# test monitoring
