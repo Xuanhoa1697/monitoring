@@ -54,7 +54,7 @@
     <t t-name="AppsMenu">
         <li class="dropdown">
             <a class="full w-100 d-flex align-items-center" data-toggle="dropdown" data-display="static" href="#" accesskey="h">
-                <i class="fa fa-th d-flex align-items-center" style="font-size: 25px;" aria-hidden="true"/>
+                <i class="fa fa-th d-flex align-items-center" style="font-size: 24px;" aria-hidden="true"/>
             </a>
             <div class="dropdown-menu" role="menu">
                 <t t-foreach="widget.getApps()" t-as="app">
