@@ -4,6 +4,7 @@ import csv
 import os
 from datetime import datetime, timedelta
 from odoo.exceptions import ValidationError
+a
 
 class MonitoringData(models.Model):
     _name = 'monitoring.data'
