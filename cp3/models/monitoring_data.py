@@ -4,7 +4,7 @@ import csv
 import os
 from datetime import datetime, timedelta
 from odoo.exceptions import ValidationError
-.,z
+
 class MonitoringData(models.Model):
     _name = 'monitoring.data'
     _inherit = ['mail.thread', 'mail.activity.mixin']
