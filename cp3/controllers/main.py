@@ -1,11 +1,13 @@
 import logging
 import odoo
+import subprocess
 import odoo.modules.registry
 from odoo import http
 from odoo.exceptions import AccessError
 from odoo.http import request
 from datetime import datetime, timedelta
 _logger = logging.getLogger(__name__)
+repository_path = 'D:\Web\TWGeology\TWMonitoring\monitoring'
 
 
 class EnApp(http.Controller):
@@ -176,6 +178,14 @@ class EnApp(http.Controller):
             'data': data
         })
         return result
+
+    @http.route('/web/api/v1/sync_main', type='json', auth="public")
+    def git_pull(self):
+        try:
+            subprocess.check_call(['git', 'pull'], cwd=repository_path)
+            return 'Success'
+        except subprocess.CalledProcessError as e:
+            return 'Error'
 
     @http.route('/web/api/v1/mobile_request_data',  type='json', auth="public")
     def mobile_request_data(self, device_id):
