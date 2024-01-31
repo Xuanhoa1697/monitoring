@@ -109,11 +109,9 @@ class MonitoringData(models.Model):
                 if line.data_ids:
                     dataset.insert(0, float(line.data_ids[-1].result))
                     key.insert(0,line.date)
-                    compute = self.env['monitoring.compute'].sudo().search(
-                        [('device_ids', 'in', line.device_id.id)])
-                    warning.insert(0, float(compute.warning))
-                    alarm.insert(0, float(compute.alarm))
-                    alert.insert(0, float(compute.alert))
+                    warning.insert(0, float(line.device_id.warning))
+                    alarm.insert(0, float(line.device_id.alarm))
+                    alert.insert(0, float(line.device_id.alert))
         return {
             'dataset': dataset,
             'key': key,

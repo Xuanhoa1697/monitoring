@@ -19,7 +19,6 @@
         'views/construction_monitoring_devices_views.xml',
         'views/monitoring_data_views.xml',
         'views/inclinometer_file_views.xml',
-        'views/monitoring_compute_views.xml',
         'wizards/monitoring_data_wizard.xml',
         'views/menu_items.xml',
         'views/templates.xml'

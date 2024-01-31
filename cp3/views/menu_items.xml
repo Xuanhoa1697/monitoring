@@ -41,11 +41,6 @@
                     action="action_monitoring_type"
                     groups="cp3.group_monitoring_admin"
                     sequence="40"/>
-                <menuitem name="Monitoring Compute"
-                    id="menu_monitoring_compute"
-                    action="action_monitoring_compute"
-                    groups="cp3.group_monitoring_admin"
-                    sequence="50"/>
             </menuitem>
         </menuitem>
             

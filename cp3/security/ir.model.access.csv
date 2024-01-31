@@ -10,6 +10,5 @@ access_inclinometter_file,inclinometter_file,model_inclinometter_file,base.group
 access_construction_monitoring_inclino,construction_monitoring_inclino,model_construction_monitoring,base.group_user,1,0,0,0
 access_monitoring_sites_inclino,monitoring_sites_inclino,model_monitoring_sites,base.group_user,1,0,0,0
 
-access_monitoring_compute,monitoring_compute,model_monitoring_compute,cp3.group_monitoring_admin,1,1,1,1
 access_monitoring_compute_detail,monitoring_compute_detail,model_monitoring_compute_detail,cp3.group_monitoring_admin,1,1,1,1
 access_monitoring_data_wizard,monitoring_data_wizard,model_monitoring_data_wizard,base.group_user,1,1,1,1

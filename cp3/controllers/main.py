@@ -338,17 +338,16 @@ class EnApp(http.Controller):
                 'last_update': current_date,
             })
             datas_ids = detail_env.create(data)
-            if data_id.device_id:
-                compute = request.env['monitoring.compute'].sudo().search([('device_ids', 'in', data_id.device_id.id)])
-                if compute and compute.code:
-                    try:
-                        for line in datas_ids:
-                            line.update({
-                                'result': float(eval(compute.code.format(line=line)))
-                            })
-                    except ValueError as e:
-                        pass
-                        print(e)
+            if data_id.device_id and data_id.device_id.code:
+                try:
+                    for line in datas_ids:
+                        line.update({
+                            'result': float(eval(data_id.device_id.code.format(line=line)))
+                        })
+                except ValueError as e:
+                    pass
+                    print(e)
+
             if device.site_id.path:
                 data_id.convert_to_csv(datas_ids)
         except ValueError as e:

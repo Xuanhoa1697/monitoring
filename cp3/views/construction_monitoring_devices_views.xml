@@ -8,12 +8,32 @@
             <field name="arch" type="xml">
                 <form string="Devices">
                     <sheet>
+                        <field name="image" widget="image" class="oe_avatar"/>
                         <group>
-                            <field name="name" required="1"/>
-                            <field name="site_id" required="1"/>
-                            <field name="type_id" required="1"/>
-                            <field name="description"/>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="site_id" required="1"/>
+                                <field name="type_id" required="1"/>
+                                <field name="main_code"/>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                                <field name="warning" />
+                                <field name="alarm"/>
+                                <field name="alert"/>
+                                <field name="description"/>
+                            </group>
                         </group>
+                        <notebook>
+                            <page string="Value">
+                                <field name="compute_ids">
+                                    <tree editable="bottom">
+                                        <field name="name" required="1"/>
+                                        <field name="value"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
@@ -49,7 +69,7 @@
             <field name="name">Monitoring Devices</field>
             <field name="res_model">monitoring.devices</field>
             <field name="view_mode">tree,form</field>
-            <field name="context">{'search_default_group_site': 1}</field>
+            <field name="context">{'search_default_group_site': 1, 'import_type': 'customize'}</field>
         </record>
     </data>
 </odoo>
