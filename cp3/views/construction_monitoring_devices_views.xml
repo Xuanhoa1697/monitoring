@@ -14,8 +14,6 @@
                                 <field name="name" required="1"/>
                                 <field name="site_id" required="1"/>
                                 <field name="type_id" required="1"/>
-                                <field name="main_code"/>
-                                <field name="code"/>
                             </group>
                             <group>
                                 <field name="warning" />
@@ -23,6 +21,10 @@
                                 <field name="alert"/>
                                 <field name="description"/>
                             </group>
+                        </group>
+                        <group>
+                            <field name="main_code"/>
+                            <field name="code"/>
                         </group>
                         <notebook>
                             <page string="Value">

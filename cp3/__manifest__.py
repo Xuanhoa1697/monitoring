@@ -20,8 +20,8 @@
         'views/monitoring_data_views.xml',
         'views/inclinometer_file_views.xml',
         'wizards/monitoring_data_wizard.xml',
+        'views/templates.xml',
         'views/menu_items.xml',
-        'views/templates.xml'
     ],
     'qweb': [
         'static/src/xml/*.xml',
