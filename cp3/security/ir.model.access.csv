@@ -12,3 +12,4 @@ access_monitoring_sites_inclino,monitoring_sites_inclino,model_monitoring_sites,
 
 access_monitoring_compute_detail,monitoring_compute_detail,model_monitoring_compute_detail,cp3.group_monitoring_admin,1,1,1,1
 access_monitoring_data_wizard,monitoring_data_wizard,model_monitoring_data_wizard,base.group_user,1,1,1,1
+access_monitoring_incl_convert_wizard,monitoring_incl_convert_wizard,model_monitoring_incl_convert_data_wizard,base.group_user,1,1,1,1

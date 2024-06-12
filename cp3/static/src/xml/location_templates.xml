@@ -20,6 +20,14 @@
         </t>
     </t>
 
+    <t t-extend="ListView.buttons" t-name="MonitoringDataIncl.buttons">
+        <t t-jquery="div.o_list_buttons" t-operation="append">
+            <button type="button" class="btn btn-primary o_button_convert_incl_monitoring">
+                INCL Binary
+            </button>
+        </t>
+    </t>
+
     <t t-name="cp3.optional_chartjs">
         <div class="dropdown">
           <button style="position: absolute; top: 0px; right: 33px;" class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

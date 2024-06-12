@@ -20,6 +20,7 @@
         'views/monitoring_data_views.xml',
         'views/inclinometer_file_views.xml',
         'wizards/monitoring_data_wizard.xml',
+        'wizards/monitoring_incl_convert_wizard.xml',
         'views/templates.xml',
         'views/menu_items.xml',
     ],

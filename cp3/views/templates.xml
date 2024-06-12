@@ -10,6 +10,8 @@
                 src="/cp3/static/src/js/monitoring_chartjs.js"/>
             <script type="text/javascript"
                 src="/cp3/static/src/js/monitoring_data_list_view.js"/>
+            <script type="text/javascript"
+                src="/cp3/static/src/js/monitoring_incl_list_view.js"/>
             <link rel="stylesheet" href="/cp3/static/src/css/monitoring.css" />
         </xpath>
     </template>

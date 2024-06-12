@@ -342,7 +342,7 @@ class EnApp(http.Controller):
                 try:
                     for line in datas_ids:
                         line.update({
-                            'result': float(eval(data_id.device_id.code.format(line=line)))
+                            'result': round(float(eval(data_id.device_id.code.format(line=line))),3)
                         })
                 except ValueError as e:
                     pass

@@ -103,7 +103,7 @@
             <field name="name">Monitoring Data</field>
             <field name="res_model">monitoring.data</field>
             <field name="view_mode">tree,form,graph</field>
-            <field name="context">{'search_default_group_construction': 1,'search_default_group_date': 1,'search_default_group_site': 1,'search_default_group_code': 1}</field>
+            <field name="context">{'search_default_group_construction': 1,'search_default_group_date': 1,'search_default_group_site': 1,'search_default_group_code': 0}</field>
         </record>
     </data>
 </odoo>
