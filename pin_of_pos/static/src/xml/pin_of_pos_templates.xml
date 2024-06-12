@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+    <t t-name="cp3.location_templates">
+        <iframe id="iframe_location"
+            width="100%"
+            height="450"
+            frameborder="0"
+            allowfullscreen="true"
+            scrolling="no"
+            loading="lazy"
+            t-att-src="'https://maps.google.com/maps?q='+location+'&amp;hl=es;&amp;output=embed&amp;z=20&amp;t=k'"/>
+    </t>
+
+    <t t-extend="ListView.buttons" t-name="MonitoringData.buttons">
+        <t t-jquery="div.o_list_buttons" t-operation="append">
+            <button type="button" class="btn btn-primary o_button_export_monitoring">
+                Export
+            </button>
+        </t>
+    </t>
+
+    <t t-name="cp3.optional_chartjs">
+        <div class="dropdown">
+          <button style="position: absolute; top: 0px; right: 33px;" class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-bars" aria-hidden="true"/>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item export_png" href="#">Export To Image</a>
+          </div>
+        </div>
+    </t>
+</templates>
