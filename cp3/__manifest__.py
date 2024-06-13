@@ -11,6 +11,7 @@
     "version": "1.0.0",
     "depends": ['base','mail','report_xlsx'],
     'data': [
+        'data/ir_cron.xml',
         'data/export_data.xml',
         'security/monitoring_security.xml',
         'security/ir.model.access.csv',

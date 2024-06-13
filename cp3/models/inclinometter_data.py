@@ -15,7 +15,17 @@ class Inclinometer(models.Model):
     site_id = fields.Many2one('monitoring.sites', string="Site")
     attachment_ids = fields.Many2many(
         'ir.attachment', 'inclinometer_ir_attachments_rel', \
-        string='Attachments')
+        string='Attachments', ondelete='cascade')
+    attachment_create_ids = fields.Many2many(
+        'ir.attachment', 'inclinometer_create_ir_attachments_rel', \
+        string='Attachments', ondelete='cascade')
+    log = fields.Text()
+
+    def auto_remove_data(self):
+        query = """
+            DELETE FROM inclinometter_file where 1 = 1
+        """
+        self.env.cr.execute(query)
 
     @api.model
     def default_get(self, fields_list):

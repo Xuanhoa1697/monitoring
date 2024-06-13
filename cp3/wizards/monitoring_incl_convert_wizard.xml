@@ -7,11 +7,24 @@
         <field name="arch" type="xml">
         <form string="INCL">
             <group>
-                <field name="file_data" required="1" widget="many2many_binary"/>
-                <field name="date" required="1"/>
-                <field name="random_number" widget="boolean_toggle"/>
-                <field name="for_date" attrs="{'invisible': [('random_number','!=', True)]}" string="For Date"/>
+                    <field name="file_data" required="1" widget="many2many_binary" string="Upload Excel"/>
+                    <label for="date_from" string="Date Data"/>
+                    <div class="o_row">
+                        <field name="date_from" required="1" string="From"/>
+                        <field name="date_to" string="To" attrs="{'readonly': [('random_number', '=', True)]}" force_save="1"/>
+                    </div>
+                    <field name="random_number" widget="boolean_toggle"/>
+                    <field name="for_date" attrs="{'invisible': [('random_number','!=', True)]}" string="For Date"/>
+                
             </group>
+            <div class="alert alert-info" role="alert">
+                <ul>
+                    <li>File excel sẽ được tải file gần nhất vừa xử lý, có thể tải thêm hoặc xóa đi.</li>
+                    <li>Date Data (From-To) là ngày lấy dữ liệu thực tế trong file Excel.</li>
+                    <li>Khi chọn Auto Number, sẽ không chọn được đến ngày của Date Data, mặc định sẽ bằng ngày bắt đầu.</li>
+                    <li>Khi chọn Auto Number và For Date, thì dữ liệu của  Date Data sẽ tính cho ngày For Date (-10/+10).</li>
+                </ul>
+            </div>
             <footer>
                 <button name="convert_data" string="Convert" type="object" default_focus="1" class="oe_highlight"/>
                 <button string="Cancel" class="btn btn-secondary" special="cancel" />

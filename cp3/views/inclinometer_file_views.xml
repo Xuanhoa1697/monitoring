@@ -7,21 +7,30 @@
             <field name="model">inclinometter.file</field>
             <field name="arch" type="xml">
                 <form string="INCL" create="false" edit="false">
+                    <header>
+                        <button type="button" name="download_incl_gkn" string="Downloads All" class="btn btn-info"/>
+                    </header>
                     <sheet>
                         <div class="oe_title">
                             <label for="name" class="oe_edit_only" required="0"/>
                             <h1><field name="name" readonly="1"/></h1>
                         </div>
                         <group>
-                            <field name="user_id" readonly="1"/>
-                            <!-- <field name="construction_id" required="0"/>
-                            <field name="site_id" required="0" domain="[('construction_id', '=', construction_id)]"/> -->
-                            <field name="write_date" readonly="1" string="Last Update"/>
+                            <group>
+                                <field name="user_id" readonly="1"/>
+                                <!-- <field name="construction_id" required="0"/>
+                                <field name="site_id" required="0" domain="[('construction_id', '=', construction_id)]"/> -->
+                                <field name="write_date" readonly="1" string="Last Update"/>
+                                <field name="attachment_create_ids" mode="kanban" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="log" class="text-danger" nolabel="1" readonly="1" placeholder="Nothing Log..."/>
+                            </group>
                         </group>
                         <notebook>
                             <page string="File">
                                 <group>
-                                    <field name="attachment_ids" string="GKN File" widget="many2many_binary" options="{'no_create': True}" mode="kanban"/>
+                                    <field name="attachment_ids" class="attachment_ids" widget="many2many_binary" string="GKN File" nolabel="1" options="{'no_create': True}" mode="kanban"/>
                                 </group>
                             </page>
                         </notebook>
@@ -57,7 +66,7 @@
             <field name="name">inclinometter.file.list.view</field>
             <field name="model">inclinometter.file</field>
             <field name="arch" type="xml">
-                <tree string="Inclinometter" expand="1" js_class="monitoring_incl_list_view" edit="false">
+                <tree string="Inclinometter" expand="1" js_class="monitoring_incl_list_view" edit="false" create="false">
                     <field name="name"/>
                     <field name="create_uid" readonly="1" string="Create By"/>
                     <field name="write_date" readonly="1" string="Last Update"/>

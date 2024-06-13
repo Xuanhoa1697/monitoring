@@ -19,7 +19,7 @@ odoo.define('cp3.monitoring_incl_list_view', function (require) {
                 view_mode: 'form',
                 view_type: 'form',
                 target: 'new',
-                name: 'Incl Convert',
+                name: 'Convert GKN',
                 views: [[false, 'form']],
             };
             var options = {
@@ -39,4 +39,32 @@ odoo.define('cp3.monitoring_incl_list_view', function (require) {
     });
     viewRegistry.add('monitoring_incl_list_view', ListViewMonitoringDataIncl);
     return ListViewMonitoringDataIncl
+});
+
+odoo.define('cp3.monitoring_incl_form_view', function(require) {
+    "use strict";
+
+    var FormController = require("web.FormController");
+
+    var includeDict = {
+        _onButtonClicked: function (ev) {
+            if(ev.data.attrs.name == 'download_incl_gkn') {
+                var data_ids = ev.data.record.data.attachment_ids.res_ids;
+                return this.download_gkn(data_ids)
+            }
+            this._super(...arguments);
+        },
+
+        download_gkn: function (params) {
+            var self = this;
+            var elm_a = $('.attachment_ids .o_attachment_many2many .o_image_box a');
+            _.each(elm_a, function (a) {
+                setTimeout(() => {
+                    a.click()
+                }, 500);
+            })
+        }
+    };
+
+    FormController.include(includeDict);
 });

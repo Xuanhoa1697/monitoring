@@ -23,7 +23,7 @@
     <t t-extend="ListView.buttons" t-name="MonitoringDataIncl.buttons">
         <t t-jquery="div.o_list_buttons" t-operation="append">
             <button type="button" class="btn btn-primary o_button_convert_incl_monitoring">
-                INCL Binary
+                Convert To GKN File
             </button>
         </t>
     </t>
